@@ -1,0 +1,33 @@
+VENVSROOTPATH=~/venvs
+VENVPYTHON_PATH=/usr/bin/python3.6
+
+## List existing virtual environment in VENVROOTHPATH
+alias listenv='ls -A $VENVSROOTPATH'
+
+## Create a new virtualenv
+function mkenv() {
+    if [ -z "$1" ]
+        then
+            echo "Missing parameter [Name] "
+        else
+            echo "Creating new environment $1 at $VENVSROOTPATH/$1..."
+            virtualenv -p $VENVPYTHON_PATH --no-site-package $VENVSROOTPATH/$1
+    fi
+	
+}
+
+function rmenv() {
+    if [ -z "$1" ]
+        then
+            echo "Missing parameter [Name] "
+        else
+            echo "Removing environment $1 at $VENVSROOTPATH/$1..."
+            rm -R $VENVSROOTPATH/$1/
+    fi
+
+}
+
+## Activate given environment.
+function vact() {
+	source "$VENVSROOTPATH/$1/bin/activate"
+}
