@@ -1,5 +1,5 @@
 # vtools
-Bash tool functions for managing python virtual environments.
+Bash functions for managing python virtual environments.
 
 ## Prerequisite
 vtools uses `virtualenv` to create python virtual environment.
